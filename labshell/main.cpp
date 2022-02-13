@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 	if (!entrada2.is_open())
 		return -1;
 
-	// to lazy to make a function for this tbh
+	// too lazy to make a function for this tbh
 	while (getline(entrada2, str))
 	{
 		count = 0;
