@@ -21,19 +21,20 @@ int lomuto(int c[], int i, int f);
 int hoare(int c[], int i, int f);
 
 // qsorts
-void quicksort_lomuto(int c[], int i, int f);
+void quicksort_lomuto(int c[], int i, int f, int swaps, int rec, double temp);
+void quicksort_hoare(int c[], int i, int f, int swaps, int rec, double temp);
 
 // four quicksort functions with pivot x partition combinations
 // random x Lomuto
-void qsort_rand_lomuto(int c[], int i, int f);
+void qsort_rand_lomuto(int c[], int i, int f, int swaps, int rec, double temp);
 
 // random x Hoare
-void qsort_rand_hoare(int c[], int i, int f);
+void qsort_rand_hoare(int c[], int i, int f, int swaps, int rec, double temp);
 
 // median x lomuto
-void qsort_med_lomuto(int c[], int i, int f);
+void qsort_med_lomuto(int c[], int i, int f, int swaps, int rec, double temp);
 
 // median x Hoare
-void qsort_med_hoare(int c[], int i, int f);
+void qsort_med_hoare(int c[], int i, int f, int swaps, int rec, double temp);
 
 #endif /* functions_h */

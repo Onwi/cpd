@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 		check_correctness(arr2, arrsize);
 		check_correctness(arr3, arrsize);
 	}
-	
+
 	// free memory
 	delete[] arr1;
 	delete[] arr2;
@@ -106,12 +106,12 @@ int main(int argc, char *argv[])
 
 		temp = shell_sort(arr3, arrsize, CIURA, saida3);
 		saida2 << _ciura << "," << arrsize << "," << temp << endl;
-		
+
 		check_correctness(arr1, arrsize);
 		check_correctness(arr2, arrsize);
 		check_correctness(arr3, arrsize);
 	}
-	
+
 	// free memory
 	delete[] arr1;
 	delete[] arr2;

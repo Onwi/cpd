@@ -4,10 +4,10 @@ output: main.o qsorts.o functions.o
 main.o: main.cpp
 	g++ -c main.cpp
 
-sorts.o: qsorts.cpp
+qsorts.o: qsorts.cpp
 	g++ -c qsorts.cpp
 
-aux-functions.0: functions.cpp functions.h
+functions.o: functions.cpp functions.h
 	g++ -c functions.cpp
 
 clean:

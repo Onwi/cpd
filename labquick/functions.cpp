@@ -100,3 +100,12 @@ void check_correctness (int C[], int tam) {
       }
   }
 }
+
+void print_saida(int C[], int tam, int swaps, int rec, double temp, std::ofstream &saida){
+    if(saida){
+			saida << "TAMANHO ENTRADA" << tam << endl;
+      saida << "SWAPS" << swaps << endl;
+			saida << "RECURSOES" << rec << endl;
+			saida << "TEMPO" << temp << endl;
+    }
+}
