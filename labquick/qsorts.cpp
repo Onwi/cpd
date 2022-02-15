@@ -2,7 +2,7 @@
 
 void quicksort_lomuto(int c[], int i, int f, int *swaps, int *rec){
   if(f > i){
-    rec++;
+    (*rec)++;
     int k = lomuto(c, i, f, swaps);
     quicksort_lomuto(c, i, k-1, swaps, rec);
     quicksort_lomuto(c, k+1, f, swaps, rec);
@@ -11,7 +11,7 @@ void quicksort_lomuto(int c[], int i, int f, int *swaps, int *rec){
 
 void quicksort_hoare(int c[], int i, int f, int *swaps, int *rec){
   if(f > i){
-    rec++;
+    (*rec)++;
     int k = hoare(c, i, f, swaps);
     quicksort_hoare(c, i, k, swaps, rec);
     quicksort_hoare(c, k+1, f, swaps, rec);

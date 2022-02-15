@@ -26,7 +26,7 @@ int med_lomuto(int c[], int i, int f, int *swaps){
 	int m = (i+f)/2;
 	int med = mediana(i, f, m);
 	swap(&c[f], &c[med]);
-	swaps++;
+	(*swaps)++;
 	return lomuto(c, i, f, swaps);
 }
 
@@ -34,7 +34,7 @@ int med_hoare(int c[], int i, int f, int *swaps){
 	int m = (i+f)/2;
 	int med = mediana(i, f, m);
 	swap(&c[i], &c[med]);
-	swaps++;
+	(*swaps)++;
 	return hoare(c, i, f, swaps);
 }
 
@@ -46,14 +46,14 @@ int random(int i, int f){
 int rand_lomuto(int c[], int i, int f, int *swaps){
 	int r = random(i+1, f);
 	swap(&c[f], &c[r]);
-	swaps++;
+	(*swaps)++;
 	return lomuto(c, i, f, swaps);
 }
 
 int rand_hoare(int c[], int i, int f, int *swaps){
 	int r = random(i+1, f);
 	swap(&c[i], &c[r]);
-	swaps++;
+	(*swaps)++;
 	return hoare(c, i, f, swaps);
 }
 
@@ -65,11 +65,11 @@ int lomuto(int c[], int i, int f, int *swaps){
 		if(c[j] <= pivo){
 			k++;
 			swap(&c[k], &c[j]);
-			swaps++;
+			(*swaps)++;
 		}
 	}
 	swap(&c[k+1], &c[f]);
-	swaps++;
+	(*swaps)++;
 	return k+1;
 }
 
@@ -90,7 +90,7 @@ int hoare(int c[], int i, int f, int *swaps){
             return j;
 
         swap(&c[k], &c[j]);
-				swaps++;
+				(*swaps)++;
     }
 }
 
@@ -114,7 +114,7 @@ void check_correctness (int C[], int tam) {
 void print_saida(int tam, int swaps, int rec, double temp, std::ofstream &saida){
     if(saida){
 			saida << "TAMANHO ENTRADA " << tam << endl;
-      saida << "SWAPS " << swaps << endl;
+			saida << "SWAPS " << swaps << endl;
 			saida << "RECURSOES " << rec << endl;
 			saida << "TEMPO " << temp << endl;
     }
