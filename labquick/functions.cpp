@@ -1,6 +1,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
+#include <fstream>
+using namespace std;
 
 #include "functions.h"
 
@@ -19,18 +22,20 @@ int mediana(int i, int f, int m) {
 	return f;
 }
 
-int med_lomuto(int c[], int i, int f){
+int med_lomuto(int c[], int i, int f, int *swaps){
 	int m = (i+f)/2;
 	int med = mediana(i, f, m);
 	swap(&c[f], &c[med]);
-	return lomuto(c, i, f);
+	swaps++;
+	return lomuto(c, i, f, swaps);
 }
 
-int med_hoare(int c[], int i, int f){
+int med_hoare(int c[], int i, int f, int *swaps){
 	int m = (i+f)/2;
 	int med = mediana(i, f, m);
 	swap(&c[i], &c[med]);
-	return hoare(c, i, f);
+	swaps++;
+	return hoare(c, i, f, swaps);
 }
 
 int random(int i, int f){
@@ -38,19 +43,21 @@ int random(int i, int f){
 	return rand() % f + i;
 }
 
-int rand_lomuto(int c[], int i, int f){
+int rand_lomuto(int c[], int i, int f, int *swaps){
 	int r = random(i+1, f);
 	swap(&c[f], &c[r]);
-	return lomuto(c, i, f);
+	swaps++;
+	return lomuto(c, i, f, swaps);
 }
 
-int rand_hoare(int c[], int i, int f){
+int rand_hoare(int c[], int i, int f, int *swaps){
 	int r = random(i+1, f);
 	swap(&c[i], &c[r]);
-	return hoare(c, i, f);
+	swaps++;
+	return hoare(c, i, f, swaps);
 }
 
-int lomuto(int c[], int i, int f){
+int lomuto(int c[], int i, int f, int *swaps){
 	int pivo = c[f];
 	int k = (i -1);
 
@@ -58,13 +65,15 @@ int lomuto(int c[], int i, int f){
 		if(c[j] <= pivo){
 			k++;
 			swap(&c[k], &c[j]);
+			swaps++;
 		}
 	}
 	swap(&c[k+1], &c[f]);
+	swaps++;
 	return k+1;
 }
 
-int hoare(int c[], int i, int f){
+int hoare(int c[], int i, int f, int *swaps){
     int pivo = c[i];
     int k = i - 1, j = f + 1;
 
@@ -81,6 +90,7 @@ int hoare(int c[], int i, int f){
             return j;
 
         swap(&c[k], &c[j]);
+				swaps++;
     }
 }
 
@@ -101,11 +111,11 @@ void check_correctness (int C[], int tam) {
   }
 }
 
-void print_saida(int C[], int tam, int swaps, int rec, double temp, std::ofstream &saida){
+void print_saida(int tam, int swaps, int rec, double temp, std::ofstream &saida){
     if(saida){
-			saida << "TAMANHO ENTRADA" << tam << endl;
-      saida << "SWAPS" << swaps << endl;
-			saida << "RECURSOES" << rec << endl;
-			saida << "TEMPO" << temp << endl;
+			saida << "TAMANHO ENTRADA " << tam << endl;
+      saida << "SWAPS " << swaps << endl;
+			saida << "RECURSOES " << rec << endl;
+			saida << "TEMPO " << temp << endl;
     }
 }
