@@ -5,6 +5,8 @@
 void swap(int *a, int *b);
 int mediana(int i, int f, int m);
 int random(int i, int f);
+void print_array(int C[], int tam);
+void check_correctness (int C[], int tam);
 
 // random partitions
 int rand_lomuto(int c[], int i, int f);
@@ -19,8 +21,9 @@ int lomuto(int c[], int i, int f);
 int hoare(int c[], int i, int f);
 
 // qsorts
-// four quicksort functions with pivot x partition combinations
+void quicksort_lomuto(int c[], int i, int f);
 
+// four quicksort functions with pivot x partition combinations
 // random x Lomuto
 void qsort_rand_lomuto(int c[], int i, int f);
 
