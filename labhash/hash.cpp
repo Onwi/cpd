@@ -35,6 +35,6 @@ int HashTable::search(string str){
 			return cont;
 		}
 	}
-	return cont+1;
+	return cont;
 }
 
